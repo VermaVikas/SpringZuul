@@ -1,0 +1,22 @@
+server:
+  port: 8090
+# change this port and run to create other instance for load balancing by ZUUL
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+ 
+spring:    
+  application:
+    name: inv-app
+     
+logging:
+  level:
+    com.app: DEBUG

@@ -1,0 +1,22 @@
+server:
+  port: 9090
+ 
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+ 
+spring:
+  application:
+    name: inv-client
+ 
+logging:
+  level:
+    com.app: DEBUG

@@ -1,0 +1,31 @@
+server:
+  port: 8001
+ 
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+ 
+spring:
+  application:
+    name: zuul-server
+ 
+logging:
+  level:
+    com.app: DEBUG
+    
+
+zuul:
+    prefix: /api
+    routes:
+        invapp:
+            path: /inv-app/**
+            serviceId: INV-APP
+            
